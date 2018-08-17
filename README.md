@@ -1,2 +1,3 @@
 # MyFioriProject
 tamko Netprice Calculation
+Hi This is my first GitHub repository ...
