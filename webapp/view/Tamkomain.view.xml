@@ -3,7 +3,7 @@
 	xmlns:form="sap.ui.layout.form"
 	xmlns:l="sap.ui.layout">
 	
-	<Page showHeader="true" title="Net Price Input" showFooter="true" showNavButton="false">
+	<Page showHeader="true" title="Net Price calculation of Tamko" showFooter="true" showNavButton="false">
 		<content>
 			<form:Form width="auto" editable="true" visible="true" class="sapUiResponsiveMargin">
 				<form:title/>
