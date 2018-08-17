@@ -1,0 +1,186 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="Calculation.Tamko_Netprice.controller.Tamkomain" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout">
+	
+	<Page showHeader="true" title="Net Price Input" showFooter="true" showNavButton="false">
+		<content>
+			<form:Form width="auto" editable="true" visible="true" class="sapUiResponsiveMargin">
+				<form:title/>
+				<form:formContainers>
+					<form:FormContainer visible="true">
+						<form:formElements>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="Type"  design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+									<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+										<items>
+											<core:Item text="Actual" enabled="true" key="Actual"/>
+											<core:Item text="Projected" enabled="true" key="Projected"/>
+											<core:Item text="" enabled="true" key=""/>
+										</items>
+									</ComboBox>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="District" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+		
+									<ComboBox items ="{TamkoModel>/DistrictListSet}" id="DistrictListId" editable="true"  change ="oSelectDistrict" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%"
+									    >
+										<items>
+											<core:Item text="{TamkoModel>DistrictName}" enabled="true" />
+							
+										</items>
+									</ComboBox>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="Territory"   design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+									<ComboBox editable="true" id="IdTerritry" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+										<!--<items>-->
+										<!--	<core:Item text="Territory1" enabled="true" key="Territory1"/>-->
+										<!--	<core:Item text="Territory2" enabled="true" key="Territory2"/>-->
+										<!--	<core:Item text="Territory3" enabled="true" key="Territory3"/>-->
+										<!--</items>-->
+									</ComboBox>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="Product Hierrachy" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+										<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+					            	<items>
+											<core:Item text="Product Hierrachy1" enabled="true" key="Product Hierrachy1"/>
+											<core:Item text="Product Hierrachy2" enabled="true" key="Product Hierrachy2"/>
+											<core:Item text="Product Hierrachy3" enabled="true" key="Product Hierrachy3"/>
+										</items>
+					             </ComboBox>
+											</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="Customer Hierarchy" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+							<MultiComboBox
+							selectionChange="handleSelectionChange"
+							selectionFinish="handleSelectionFinish"
+							width="500px">
+					            	<items>
+										<core:Item text="customer Hierrachy1" enabled="true" key="customer Hierrachy1"/>
+											<core:Item text="customer Hierrachy2" enabled="true" key="customer Hierrachy2"/>
+											<core:Item text="customer Hierrachy3" enabled="true" key="customer Hierrachy3"/>
+											</items>
+					             </MultiComboBox>
+									
+								
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="Distributor Types" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+									<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+										<items>
+											<core:Item text="One Step" enabled="true" key="One Step"/>
+											<core:Item text="Two Step" enabled="true" key="Two Step"/>
+											<core:Item text="All" enabled="true" key="All"/>
+										</items>
+									</ComboBox>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="Sold to Customer" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+									<MultiComboBox
+									selectionChange="handleSelectionChange"
+									selectionFinish="handleSelectionFinish"
+									width="500px">
+										<items>
+											<core:Item text="Sold to Customer1" enabled="true" key="Sold to Customer1"/>
+											<core:Item text="Sold to Customer2" enabled="true" key="Sold to Customer2"/>
+											<core:Item text="Sold to Customer3" enabled="true" key="Sold to Customer3"/>	
+										</items>
+								</MultiComboBox>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="Qty in SUOM" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+									<Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label  text="CPU" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+									<Switch  id ="zswitchId" state="false" change="zchange"  customTextOff="Off" customTextOn="On" type="Default" enabled="true" visible="true"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="Ship from Location" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+									<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+										<items>
+											<core:Item text="Ship from Location1" enabled="true" key="Ship from Location1"/>
+											<core:Item text="Ship from Location2" enabled="true" key="Ship from Location2"/>
+											<core:Item text="Ship from Location3" enabled="true" key="Ship from Location3"/>
+										</items>
+									</ComboBox>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true" id="zcustomer">
+								<form:label>
+									<Label  id="zcustomer1" text="Customer" design="Bold" width="100%" required="flase" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+									<ComboBox  id ="zcustomer2" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+										<items>
+											<core:Item text="Customer1" enabled="true" key="Customer1"/>
+											<core:Item text="Customer2" enabled="true" key="Customer2"/>
+											<core:Item text="Customer3" enabled="true" key="Customer3"/>
+										</items>
+									</ComboBox>
+								</form:fields>
+							</form:FormElement>
+						</form:formElements>
+						<form:title/>
+					</form:FormContainer>
+				</form:formContainers>
+				<form:layout>
+					<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+				</form:layout>
+			</form:Form>
+		</content>
+		<footer>
+			<OverflowToolbar width="100%" height="auto" design="Auto" enabled="true" visible="true">
+				<content>
+					<ToolbarSpacer width=""/>
+					<Button text="Continue"  press="zpress" type="Emphasized" icon="sap-icon://e048" iconFirst="true" width="auto" enabled="true" visible="true"
+						iconDensityAware="false"/>
+				</content>
+			</OverflowToolbar>
+		</footer>
+		<headerContent/>
+		<subHeader/>
+		<customHeader/>
+	</Page>
+</mvc:View>

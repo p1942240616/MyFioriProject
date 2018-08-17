@@ -1,0 +1,54 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="Calculation.Tamko_Netprice.controller.TamkoDetail" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	displayBlock="true">
+	<App>
+		<pages>
+			<Page title="Title">
+				
+				<Button text ="button"/>
+				<Button text ="button"/>
+				<Button text ="button"/>
+				
+				<Button text ="button"/>
+				<Button text ="button"/>
+				<Table id="IdTable" growing="true" growingThreshold="5" inset="true" headerText="List Of Emp Availability Records">
+					<headerToolbar></headerToolbar>
+					<columns>
+						<Column>
+							<Text text="Customer Id"/>
+						</Column>
+						<Column>
+							<Text text="City "/>
+						</Column>
+						<Column>
+							<Text text=" Country "/>
+						</Column>
+						<Column>
+							<Text text=" Name "/>
+						</Column>
+					</columns>
+					<!--<items>-->
+					<!--		<ColumnListItem type="Active">-->
+					<!--	<cells>-->
+							
+					<!--		<ObjectIdentifier  title="{Id}" titleActive="true" visible="true" titlePress="itemPress1"/>-->
+					<!--		<ObjectIdentifier  title="{Ort01}" titleActive="true" visible="true" titlePress="itemPress2"/>-->
+					<!--		<ObjectIdentifier  title="{Land1}" titleActive="true" visible="true" titlePress="itemPress3"/>-->
+					<!--		<ObjectIdentifier  title="{Name}" titleActive="true" visible="true" titlePress="itemPress4"/>-->
+						
+					<!--	</cells>-->
+					<!--</ColumnListItem>-->
+					<!--</items>-->
+				</Table>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button press="onPrint" text="Print" icon="sap-icon://print" type="Emphasized"/>
+						<Button press="onPrint" text="Print Table" data:targetId="table" icon="sap-icon://print"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

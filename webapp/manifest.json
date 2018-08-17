@@ -1,0 +1,179 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "Calculation.Tamko_Netprice",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZMY1_SRV": {
+				"uri": "/sap/opu/odata/sap/ZMY1_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"ZTAMKO_SRV_01": {
+				"uri": "/sap/opu/odata/sap/ZTAMKO_SRV_01/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/ZTAMKO_SRV_01/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "Calculation.Tamko_Netprice.view.S1",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "Calculation.Tamko_Netprice.i18n.i18n"
+				}
+			},
+			"": {
+				"uri": "/sap/opu/odata/sap/ZMY1_SRV/",
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZMY1_SRV",
+				"preload": true
+			},
+			"TamkoModel": {
+				"uri": "/sap/opu/odata/sap/ZTAMKO_SRV_01/",
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZTAMKO_SRV_01",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "Calculation.Tamko_Netprice.view",
+				"controlAggregation": "",
+				"controlId": "SplitAppId",
+				"clearControlAggregation": false,
+				"bypassed": {
+					"target": []
+				}
+			},
+			"routes": [
+				{
+					"name": "",
+					"pattern": "",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Tamkomain",
+						"TamkoWelcome"
+					]
+				},
+				{
+					"name": "TamkoDetail",
+					"pattern": "toDetails/{Appserver}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Tamkomain",
+						"TamkoDetail"
+					]
+				}
+			],
+			"targets": {
+				"Tamkomain": {
+					"viewType": "XML",
+					"viewName": "Tamkomain",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "Calculation.Tamko_Netprice.view",
+					"controlAggregation": "masterPages",
+					"controlId": "SplitAppId",
+					"clearControlAggregation": false,
+					"bypassed": {
+						"target": []
+					}
+				},
+				"TamkoDetail": {
+					"viewType": "XML",
+					"viewName": "TamkoDetail",
+					"controlAggregation": "detailPages",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "Calculation.Tamko_Netprice.view",
+					"controlId": "SplitAppId",
+					"clearControlAggregation": false,
+					"bypassed": {
+						"target": []
+					}
+				},
+				"TamkoWelcome": {
+					"viewType": "XML",
+					"viewName": "TamkoWelcome",
+					"controlAggregation": "detailPages"
+				}
+			}
+		}
+	}
+}

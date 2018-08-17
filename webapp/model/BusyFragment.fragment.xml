@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<BusyDialog customIconRotationSpeed="0" customIconDensityAware="false" customIcon="img/tenor.gif" customIconHeight="50px"
+		customIconWidth="50px" close="onDialogClosed"></BusyDialog>
+</core:FragmentDefinition>
+<!--"https://im.ezgif.com/tmp/ezgif-1-0c90fddc98.gif"-->
